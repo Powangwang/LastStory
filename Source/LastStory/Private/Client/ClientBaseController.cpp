@@ -20,19 +20,19 @@ UClientBaseController::UClientBaseController()
 // Called when the game starts
 bool UClientBaseController::Init()
 {
-
-	if (!InitDatabaseController()) {
+	bool ret = true;
+	if (!(ret = InitDatabaseController())) {
 		UE_LOG(LogTemp, Error, TEXT("InitDatabaseController Error"));
-		return false;
 	}
-	if (!InitAllClientItems()) {
+	else if (!(ret = InitAllClientItems())) {
 		UE_LOG(LogTemp, Error, TEXT("InitAllClientItems Error"));
-		return false;
 	}
-	if (!InitAllClientData()) {
-		OnClientInitError.Broadcast();
+	else if (!(ret = InitAllClientData())) {
 		UE_LOG(LogTemp, Error, TEXT("InitAllClientData Error"));
-		return false;
+	}
+	
+	if (!ret) {
+		OnClientInitError.Broadcast();
 	}
 
 	if (!DestroyDatabaseController()) {
@@ -67,12 +67,13 @@ bool UClientBaseController::InitDatabaseController() {
 }
 
 bool UClientBaseController::DestroyDatabaseController() {
+	bool ret = true;
 	if (DBController != nullptr) {
-		DBController->DisconncetDatabase();
+		ret = DBController->DisconncetDatabase();
 		DBController->ConditionalBeginDestroy();
 		DBController = nullptr;
 	}
-	return true;
+	return ret;
 }
 bool UClientBaseController::InitAllClientItems() {
 
@@ -99,6 +100,7 @@ bool UClientBaseController::DestroyAllClientItems() {
 		}
 	}
 	ClientItems.Empty();
+	ClientClassItems.Empty();
 	return true;
 }
 

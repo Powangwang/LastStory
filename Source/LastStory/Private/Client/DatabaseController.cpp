@@ -26,7 +26,7 @@ bool UDatabaseController::ConnectDatabase(FString* DatabaseFullPath) {
 	}
 
 	auto convertDatabasePath = TCHAR_TO_ANSI(*fullDatabasePath);
-	int nRes = sqlite3_open(convertDatabasePath, &mDatabase);
+	int nRes = sqlite3_open_v2(convertDatabasePath, &mDatabase, SQLITE_OPEN_READONLY, nullptr);
 	if (nRes != SQLITE_OK) {
 		mDatabase = nullptr;
 		UE_LOG(LogTemp, Error, TEXT("Open DB faild"));
