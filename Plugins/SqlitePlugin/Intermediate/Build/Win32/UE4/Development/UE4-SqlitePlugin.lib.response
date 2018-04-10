@@ -1,0 +1,8 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x86
+/SUBSYSTEM:WINDOWS
+"D:\Work\Workspace\DBTest\Plugins\SqlitePlugin\Intermediate\Build\Win32\UE4\Development\SqlitePlugin\Module.SqlitePlugin.cpp.obj"
+"D:\Work\Workspace\DBTest\Plugins\SqlitePlugin\Intermediate\Build\Win32\UE4\Development\SqlitePlugin\Module.SqlitePlugin.gen.cpp.obj"
+"D:\Work\Workspace\DBTest\Intermediate\Build\Win32\UE4\Development\SqlitePlugin\PCLaunch.rc.res"
+/OUT:"D:\Work\Workspace\DBTest\Plugins\SqlitePlugin\Binaries\Win32\UE4-SqlitePlugin.lib"

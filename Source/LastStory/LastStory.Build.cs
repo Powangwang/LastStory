@@ -20,9 +20,11 @@ public class LastStory : ModuleRules
 		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore" });
 
 		PrivateDependencyModuleNames.AddRange(new string[] {  });
+		
+//		PublicIncludePaths.AddRange(new string[] {"SqlitePlugin/Source/ThirdParty/SqliteLibrary/Includes"});
 
-		PublicIncludePaths.Add(Path.Combine(SqlitePath, "inc"));
-        PublicAdditionalLibraries.Add(Path.Combine(SqlitePath, "lib", "sqlite3.lib"));
+//		PublicIncludePaths.Add(Path.Combine(SqlitePath, "inc"));
+//        PublicAdditionalLibraries.Add(Path.Combine(SqlitePath, "lib", "sqlite3.lib"));
 		// Uncomment if you are using Slate UI
 		// PrivateDependencyModuleNames.AddRange(new string[] { "Slate", "SlateCore" });
 		
